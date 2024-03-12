@@ -1,0 +1,18 @@
+<table>
+    <thead>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Url</th>
+        <th>ThumbnailUrl</th>
+    </thead>
+    <tbody>
+        @for (foto of fotos; track foto.id){
+            <tr>
+                <td>{{foto.id}}</td>
+                <td>{{foto.title}}</td>
+                <td>{{foto.url}}</td>
+                <td><img src="{{foto.thumbnailUrl}}" /></td>
+            </tr>
+        }
+    </tbody>
+</table>

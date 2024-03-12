@@ -1,0 +1,42 @@
+<section>
+    @if (isLogged){
+        <p>Bienvenido, {{username}}</p>
+        <img 
+            (click)="logout()"
+            alt="foto" src="https://github.com/SergioValadezA.png" />
+
+            <form (submit)="agregarUsuario(usuario)">
+                <input type="text" #usuario>
+                <button>Agregar</button>
+
+            </form>
+
+            <h1>Double enlace de datos</h1>
+            <div>
+                nombre: {{nombre}}
+                edad: {{edad}} 
+                <form>
+                    <label>Nombre</label>
+                    <input type="text" name="nombre" [(ngModel)]="nombre"><br>
+                    <label>Edad</label>
+                    <input type="text" name="edad" [(ngModel)]="edad"><br>>
+                </form>
+            </div>
+
+
+    }   @else {
+        <p>Inicia sesión!</p>
+        <button (click)="isLogged=true">Iniciar Sesión</button>
+    }
+
+<ul>
+    @for( usuario of usuarios; track usuario.id){
+        <li>
+            <app-usuario  
+            (userToDelete)="deleteUser($event)"
+            [nombreUsuario]="usuario.nombre">
+            </app-usuario></li>
+    }
+</ul>
+
+</section>
